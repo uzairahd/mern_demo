@@ -1,0 +1,19 @@
+.p1{
+    color: aqua;
+    font-weight: bold;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    position: relative;
+    top: 40px;
+}
+.p2{
+    border-style: solid;
+    border-color: blue;
+    border-width: 5px;
+    position: relative;
+    top: 40px;
+}
+body{
+    
+}
