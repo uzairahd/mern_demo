@@ -1,0 +1,11 @@
+div{
+    background-color: lightblue;
+    padding: 10px;
+}
+ul{
+    display: flex;
+    justify-content: space-between;
+}
+li{
+    list-style: none;
+}
