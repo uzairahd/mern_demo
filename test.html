@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uzair Ahmed Z - Portfolio</title>
+  <link rel="stylesheet" href="test.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+</head>
+<body>
+  <div class="min-h-screen">
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="content hidden">
+        <div class="profile">
+          <div class="text-animation-container">
+            <h1 class="gradient-text">I'm Uzair</h1>
+          </div>
+          <p class="subtitle">Welcome to my profile!</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/uzair-ahmed-613154299/" aria-label="LinkedIn">
+              <i data-lucide="linkedin"></i>
+            </a>
+            <a href="mailto:your-email@example.com" aria-label="Email">
+              <i data-lucide="mail"></i>
+            </a>
+            <a href="tel:9345341767" aria-label="Phone">
+              <i data-lucide="phone"></i>
+            </a>
+            <a href="https://github.com/yourusername" aria-label="GitHub">
+              <i data-lucide="github"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="about-section">
+          <div class="about-content">
+            <h2>About Me</h2>
+            <p>
+              I'm a student at Sri Krishna College of Engineering and Technology, Coimbatore, pursuing Electronics and Communication Engineering. 
+              I completed my schooling at Morning Star Higher Secondary School, Gudalur.
+            </p>
+            <div class="skills">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>SQL</span>
+              <span>C++</span>
+              <span>JAVA</span>
+            </div>
+          </div>
+
+          <div class="interests">
+            <h2>Interests & Achievements</h2>
+            <div class="interest-items">
+              <div class="interest-item">
+                <i data-lucide="book"></i>
+                <span>Reading Books</span>
+              </div>
+              <div class="interest-item">
+                <i data-lucide="folder-root"></i>
+                <span>Playing Football</span>
+              </div>
+              <div class="interest-item">
+                <i data-lucide="film"></i>
+                <span>Watching Movies</span>
+              </div>
+              <div class="interest-item">
+                <i data-lucide="trophy"></i>
+                <span>3rd Prize in Inter-department Paper Presentation</span>
+              </div>
+              <div class="interest-item">
+                <i data-lucide="terminal"></i>
+                <span>Participated in Various Hackathons</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="experience-section">
+          <h2>Professional Experience</h2>
+          <div class="experience-cards">
+            <div class="experience-card">
+              <div class="experience-header">
+                <i data-lucide="sun"></i>
+                <div class="experience-title">
+                  <h3>Intern</h3>
+                  <h4>VESAT Renewables Private Limited</h4>
+                </div>
+              </div>
+              <p>Gained valuable insights into solar systems including solar water heaters and solar power plants. Learned about renewable energy technologies and their practical applications.</p>
+            </div>
+
+            <div class="experience-card">
+              <div class="experience-header">
+                <i data-lucide="code-2"></i>
+                <div class="experience-title">
+                  <h3>Full Stack Development Student</h3>
+                  <h4>Nxtwave Academy</h4>
+                </div>
+              </div>
+              <p>Currently pursuing full stack development training, enhancing technical skills and learning modern web technologies.</p>
+            </div>
+
+            <div class="experience-card">
+              <div class="experience-header">
+                <i data-lucide="users"></i>
+                <div class="experience-title">
+                  <h3>Professional Development</h3>
+                  <h4>Workshops & Podcasts</h4>
+                </div>
+              </div>
+              <p>Actively participated in various workshops and podcasts to stay updated with industry trends and enhance professional knowledge.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="projects-section">
+          <h2>Projects & Experience</h2>
+          <div class="project-cards">
+            <div class="project-card">
+              <i data-lucide="code"></i>
+              <h3>Hackathon Projects</h3>
+              <p>Participated in various hackathons, developing innovative solutions and gaining hands-on experience in different technologies.</p>
+            </div>
+            <div class="project-card">
+              <i data-lucide="trophy"></i>
+              <h3>Paper Presentation</h3>
+              <p>Secured third prize in the inter-department paper presentation event, demonstrating strong research and presentation skills.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated Background -->
+      <div class="animated-background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <canvas id="matrix-rain"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Matrix Rain Animation
+    const canvas = document.getElementById('matrix-rain');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function drawMatrixRain() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#0f0';
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    // GSAP Animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Text animation
+    const text = document.querySelector('.gradient-text');
+    text.innerHTML = text.textContent.split('').map(char => 
+      `<span class="char">${char}</span>`
+    ).join('');
+
+    gsap.from('.char', {
+      opacity: 0,
+      y: 100,
+      rotateX: -90,
+      stagger: 0.05,
+      duration: 1,
+      ease: "back.out"
+    });
+
+    // Scroll animations
+    gsap.utils.toArray('.experience-card').forEach((card, i) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top bottom",
+          end: "top center",
+          scrub: 1
+        },
+        opacity: 0,
+        x: i % 2 === 0 ? -100 : 100,
+        rotation: i % 2 === 0 ? -10 : 10
+      });
+    });
+
+    gsap.utils.toArray('.project-card').forEach(card => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top bottom",
+          toggleActions: "play none none reverse"
+        },
+        opacity: 0,
+        scale: 0.8,
+        duration: 1,
+        ease: "power2.out"
+      });
+    });
+
+    // Parallax effect for blobs
+    document.addEventListener('mousemove', (e) => {
+      const blobs = document.querySelectorAll('.blob');
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+
+      blobs.forEach((blob, index) => {
+        const speed = (index + 1) * 20;
+        blob.style.transform = `translate(${x * speed}px, ${y * speed}px) scale(${1 + (x + y) * 0.2})`;
+      });
+    });
+
+    // Start animations
+    document.addEventListener('DOMContentLoaded', () => {
+      const content = document.querySelector('.content');
+      content.classList.remove('hidden');
+      setInterval(drawMatrixRain, 33);
+    });
+
+    // Resize handler for canvas
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>

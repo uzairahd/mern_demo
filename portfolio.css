@@ -1,0 +1,26 @@
+.navbar{
+    width: 100vw;
+    background-color: #4a4848;
+}
+
+.Home{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: antiquewhite;
+    align-items: center;
+    height: 100vh;
+}
+
+.disp-container{
+    background-color: #dbd3d3;
+    color: #ffffff;
+    height: 50vh;
+}
+
+.aboutme{
+    height: 50vh;
+    background-color: black;
+    
+}
+.aboutme-content{
+
+}
